@@ -1,0 +1,110 @@
+body { 
+	background-color: #fff;
+	color: #333; 
+	font:13px/20px Arial, Helvetica, "Nimbus Sans L", sans-serif;
+	padding:0 10px
+}
+
+/*@media only screen and (max-device-width: 1920px) {
+	body {
+		min-width:760px;
+		max-width:1200px;
+		margin:0 auto;
+		padding:0 10px; /* Impide que el layout se pegue con el borde del browser */
+	}
+}*/
+
+.ie6 body, .ie7 body {
+	width:expression( (document.documentElement.clientWidth >1202)? "1200px": (document.documentElement.clientWidth <742)? "740px": "auto" );
+}
+.btn.secondary.skin{
+	width: 100%
+}
+
+.mainHeader {
+	height:40px;
+	background-color: #ccc;
+	line-height:40px;
+	border-bottom:1px solid #AFAFAF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+
+.menuProvi{
+	display:block;
+	text-indent:999px;
+	overflow:hidden;
+	width:58px;
+	height:32px;
+	position:absolute;
+	top:5px;
+	left:8px;
+	background: url("../../assets/logo.png") 0 0 no-repeat;
+}
+
+#formBusqueda {
+	padding:0 10px 0 75px;
+}
+
+.search {
+	border:1px solid #ccc;
+	padding:3px;
+	width:150px;
+	height: 15px;
+}
+
+.search:focus {
+	border:2px solid #666;
+	padding:2px;
+}
+
+#searchResults {
+	margin-top:50px;
+	width:100%;
+}
+
+article {
+	height:80px;
+	position:relative;
+	border-bottom:1px solid #ccc;
+}
+
+article header a{
+	font-size: 16px;
+	font-weight: normal;
+	display:block;
+    margin-top: 10px;
+}
+
+article figure a {
+	position:absolute;
+	top:5px;
+	left:5px;
+}
+
+article figure img{
+	width:70px;
+	height:70px;
+}
+
+article header{
+	padding-left:90px;
+	padding-right:10px;
+	overflow:hidden;
+	max-height:50px;
+}
+
+article .costs{
+	padding-left:90px;
+	padding-top:5px;
+}
+
+footer p {
+	font-size:11px;
+	color:#666;
+	margin:10px;
+}
