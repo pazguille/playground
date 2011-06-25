@@ -1,0 +1,46 @@
+﻿<!doctype html> 
+<!--[if IE]><![endif]--> 
+<!--[if lt IE 7 ]> <html lang="es" class="no-js ie6"> <![endif]--> 
+<!--[if IE 7 ]>    <html lang="es" class="no-js ie7"> <![endif]--> 
+<!--[if IE 8 ]>    <html lang="es" class="no-js ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="es" class="no-js ie9"> <![endif]--> 
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="es" class="no-js"> <!--<![endif]--> 
+<head> 
+	<script></script> 
+	<meta charset="utf-8"> 
+	<title>Google Maps Playground</title> 
+	
+	<link rel="stylesheet" href="http://ui.ml.com/php/packer.php?type=css"> 
+	<style>
+		#map {
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head> 
+ 
+<body>  
+	<div class="box">
+		<div id="map"></div>
+	</div>
+	
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="http://download.chico-ui.com.ar/0.6.7/chico-min-0.6.7.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script>
+		$(function(){
+			var latlng = new google.maps.LatLng(-34.397, 150.644);
+			
+			var myOptions = {
+				zoom: 8,
+				center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			
+			var map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+		});
+	</script>
+</body> 
+</html>
