@@ -1,0 +1,60 @@
+﻿<!doctype html> 
+<!--[if IE]><![endif]--> 
+<!--[if lt IE 7 ]> <html lang="es" class="no-js ie6"> <![endif]--> 
+<!--[if IE 7 ]>    <html lang="es" class="no-js ie7"> <![endif]--> 
+<!--[if IE 8 ]>    <html lang="es" class="no-js ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="es" class="no-js ie9"> <![endif]--> 
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="es" class="no-js"> <!--<![endif]--> 
+<head> 
+	<script></script> 
+	<meta charset="utf-8"> 
+	<title>Text to Voice Playground</title> 
+	
+	<link rel="stylesheet" href="http://download.chico-ui.com.ar/0.6.9/chico-min-0.6.9.css"> 
+	<style>
+		audio {
+			background-color:#333;
+		}
+	</style>
+</head> 
+ 
+<body> 
+	<h1>Text to Voice</h1>
+	<div id="read" class="box"><p>Un videojuego es un software creado para el entretenimiento en general y basado en la interacción entre una o varias personas y un aparato electrónico que ejecuta dicho videojuego este dispositivo electrónico puede ser una computadora, una máquina arcade, una videoconsola, un dispositivo handheld (un teléfono móvil, por ejemplo) los cuales son conocidos como "plataformas". Aunque, usualmente el término "video" en la palabra "videojuego" se refiere en sí a un visualizador de gráficos rasterizados, hoy en día se utiliza para hacer uso de cualquier tipo de visualizador. Entendemos por videojuegos todo tipo de juego digital interactivo, con independencia de su soporte. Hay videojuegos sencillos y otros más complejos, algunos son capaces de narrar historias y acontecimientos usando audio y video creados ex profeso, demostrando que el videojuego es otra manifestación del arte. Al dispositivo de entrada usado para manipular un videojuego se lo conoce como controlador de videojuego, y varía dependiendo de lo que se trate la plataforma. Por ejemplo, un controlador de consola podría únicamente consistir de un botón y una palanca de mando. No obstante, otro podría presentar una docena de botones y una o más palancas. Frecuentemente, los primeros juegos informáticos hacían uso de un teclado para llevar a cabo una interacción, e incluso se necesitaba que el usuario adquiriera una palanca por separado, que tenía un botón como mínimo.3 Varios juegos de computadora modernos permiten, y en algunos casos exigen, que el usuario use un teclado y un ratón de forma simultánea. Por lo general, los videojuegos hacen uso de otras maneras de proveer la interactividad e información al jugador. El audio es casi universal, usándose dispositivos de reproducción de sonido, tales como altavoces y auriculares. Otros de tipo feedback se presentan como periféricos hápticos que producen una vibración o realimentación de fuerza, con la manifestación de vibraciones cuando se intenta simular la realimentación de fuerza.</p></div>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="http://download.chico-ui.com.ar/0.6.9/chico-min-0.6.9.js"></script>
+	<script>
+			var str = $("#read").text(),
+			max = 510,
+			len = str.length/max,			
+			track = 0,
+			tracksLists = [],
+			current = 0;
+
+			for (var i = 0, j = len; i<j; i += 1){
+				//tracksLists.push("http://translate.google.com/translate_tts?tl=es&q="+str.substr(track, max));
+				tracksLists.push("http://api.microsofttranslator.com/V2/http.svc/Speak?appId=Tg__p-eubIg97ksgkvYGtlP2OPaaC-1HBGqJBVPBJugrO3HM2ITnD_m-jlf1dwmtC&text=" + str.substr(track, max) + "&language=es&format=audio%2fwav");
+				//another app id = TLMNGkddvwMa8SbO0mx3H9dF_3JgkLj1yWfuLlaeiiFU*
+				track += max;
+			};
+
+			var voice = document.createElement('audio');
+			//voice.autoplay = true;
+			voice.controls = true;
+			voice.autobuffer = true;
+			
+			$(voice).insertAfter("#read").bind("ended",  function(){
+				current += 1;
+				if (current > tracksLists.length) return false;
+
+				this.src = tracksLists[current];
+				this.play();
+			});
+			//voice.src = "http://api.microsofttranslator.com/V2/http.svc/Speak?appId=Tg__p-eubIg97ksgkvYGtlP2OPaaC-1HBGqJBVPBJugrO3HM2ITnD_m-jlf1dwmtC&text=" + $("#read").text() + "&language=es&format=audio%2fwav";
+			$(window).bind("load", function(){
+				ch.preload(tracksLists);
+				voice.src = tracksLists[0];
+			});
+	</script>
+</body> 
+</html>

@@ -54,7 +54,6 @@
 			},
 	
 			parseResults:function(data){
-				console.log(data)
 				var items = [];
 				$(data[2].results).each(function(i,e) {
 					
@@ -70,11 +69,17 @@
 				
 				});
 				
-				var html = items.join("") + "<p class=\"actions\"><input type=\"submit\" value=\"More\" class=\"btn secondary skin more\"><p>";
+				var html = items.join("");
 				$(".loading").remove();
-				$("#searchResults")
-					.append( html );
-	
+				$("#searchResults").append( html );
+				
+				if ($(".more").length != 0) {
+					$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
+					return;
+				};
+				
+				$("body").append("<p class=\"actions\"><input type=\"submit\" value=\"More\" class=\"btn secondary skin more\"><p>");
+
 			}
 		};
 
@@ -96,8 +101,8 @@
 			event.preventDefault();
 			event.stopPropagation();
 			
-			$("#searchResults").html("<div class=\"loading\">");
-			
+			$("#searchResults").append("<div class=\"loading\">");
+			$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
 			query = $(".search").val();
 			offset += 5;
 			search.init(query, offset);
