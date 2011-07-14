@@ -34,7 +34,22 @@
 			for (var i = 0, j = len; i<j; i += 1){
 				//tracksLists.push("http://translate.google.com/translate_tts?tl=es&q="+str.substr(track, max));
 				tracksLists.push("http://api.microsofttranslator.com/V2/http.svc/Speak?appId=Tg__p-eubIg97ksgkvYGtlP2OPaaC-1HBGqJBVPBJugrO3HM2ITnD_m-jlf1dwmtC&text=" + str.substr(track, max) + "&language=es&format=audio%2fwav");
-				//another app id = TLMNGkddvwMa8SbO0mx3H9dF_3JgkLj1yWfuLlaeiiFU*
+				//another app id = TLMNGkddvwMa8SbO0mx3H9dF_3JgkLj1yWfuLlaeiiFU*			
+				/*$.getJSON(
+					"http://vaas.acapela-group.com/webservices/1-32-01-JSON/synthesizer.php?jsoncallback=?",  
+					{
+						prot_vers: 2,
+						cl_login: "asTTS",
+						cl_pwd: "demo_web",
+						req_voice:"maria22k",
+						req_text: str.substr(track, max)
+					  },
+					function (data) {
+						// Data exploitation 
+						tracksLists.push(data.snd_url);
+					}						
+				);*/
+				
 				track += max;
 			};
 
