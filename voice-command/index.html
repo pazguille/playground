@@ -1,0 +1,64 @@
+<!doctype html> 
+<!--[if IE]><![endif]--> 
+<!--[if lt IE 7 ]> <html lang="es" class="no-js ie6"> <![endif]--> 
+<!--[if IE 7 ]>    <html lang="es" class="no-js ie7"> <![endif]--> 
+<!--[if IE 8 ]>    <html lang="es" class="no-js ie8"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="es" class="no-js ie9"> <![endif]--> 
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="es" class="no-js"> <!--<![endif]--> 
+<head> 
+	<script></script> 
+	<meta charset="utf-8"> 
+	<title>Voice command</title>
+	<link rel="stylesheet" href="http://download.chico-ui.com.ar/0.6.9/chico-min-0.6.9.css">
+	<style> 
+		input#speech{
+
+			color:transparent;
+			background-color:transparent;
+			border:0px;
+			width:15px;
+			cursor:pointer;
+			
+			-webkit-transform: scale(3.0, 3.0);
+			-moz-transform: scale(3.0, 3.0);
+			-ms-transform: scale(3.0, 3.0);
+			transform: scale(3.0, 3.0);
+		
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Voice command</h1>
+	<input id="speech" type="text" x-webkit-speech="">
+	<div class="box"> 
+		<h2>Modal window</h2> 
+		
+		<form action="test.html"> 
+			<p class="actions">
+				<input type="submit" class="btn secondary YOUR_SELECTOR_Modal" value="Executed by submit input">
+				<a href="test.html" class="YOUR_SELECTOR_Modal">Executed by link.</a>
+			</p>
+		</form>
+	</div> 
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="http://download.chico-ui.com.ar/0.6.9/chico-min-0.6.9.js"></script>
+	<script> 		
+		// Modal
+		var ch_moda = $(".YOUR_SELECTOR_Modal").modal({
+		      onContentLoad: function(){ 
+		      	console.log("onContentLoad working fine") 
+              },
+		      onContentError: function(){ 
+		      	console.log("onContentError working fine") 
+		      }
+		});
+		
+		// Voive
+		$("#speech").bind("webkitspeechchange", function(){
+			ch_moda[0][this.value]();
+		});
+	</script>
+</body> 
+</html>
