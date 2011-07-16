@@ -1,4 +1,4 @@
-<!doctype html> 
+﻿
 <!--[if IE]><![endif]--> 
 <!--[if lt IE 7 ]> <html lang="es" class="no-js ie6"> <![endif]--> 
 <!--[if IE 7 ]>    <html lang="es" class="no-js ie7"> <![endif]--> 
@@ -10,54 +10,71 @@
 	<meta charset="utf-8"> 
 	<title>Voice command</title>
 	<link rel="stylesheet" href="http://download.chico-ui.com.ar/0.6.9/chico-min-0.6.9.css">
-	<style> 
-		input#speech{
+	<style>
 
+		body{
+			/*background: -o-linear-gradient(#666, #555);
+			background: -moz-linear-gradient(#666, #555);
+			background: -webkit-linear-gradient(#666, #555);
+			background: -o-linear-gradient(#666, #555);*/
+			color: #FFF;
+		}
+		
+		#circle{
+			position:absolute;
+			top:100;
+			left:100;
+			border-radius:50px;
+			-o-border-radius:50px;
+			-moz-border-radius:50px;
+			-webkit-border-radius:50px;
+			width:50px;
+			height:50px;
+			background-color: red;
+			background-image: -webkit-gradient(radial,36 36, 72, 36 10, 0, from(rgba(0, 0, 0, 1)), to(rgba(255, 255, 255, 1)), color-stop(0.85, rgba(255, 255, 255, 0)), color-stop(0.4, rgba(0, 0, 0, 1)) );
+			transition: all .10s linear;
+			-o-transition: all .3s linear;
+			-moz-transition: all .3s linear;
+			-webkit-transition: all 1s linear;
+			/*-box-shadow:0px 5px 5px #4055A5;
+			-o-box-shadow:0px 0px 5px #4055A5;
+			-moz-box-shadow:0px 0px 5px #4055A5;
+			-webkit-box-shadow:0px 5px 1px #333;*/
+			-webkit-transform: rotate(0deg);	
+			-moz-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+
+		input#speech{
 			color:transparent;
 			background-color:transparent;
 			border:0px;
 			width:15px;
 			cursor:pointer;
-			
 			-webkit-transform: scale(3.0, 3.0);
 			-moz-transform: scale(3.0, 3.0);
 			-ms-transform: scale(3.0, 3.0);
 			transform: scale(3.0, 3.0);
-		
 		}
+
 	</style>
 </head>
 
 <body>
 	<h1>Voice command</h1>
-	<input id="speech" type="text" x-webkit-speech="">
-	<div class="box"> 
-		<h2>Modal window</h2> 
-		
-		<form action="test.html"> 
-			<p class="actions">
-				<input type="submit" class="btn secondary YOUR_SELECTOR_Modal" value="Executed by submit input">
-				<a href="test.html" class="YOUR_SELECTOR_Modal">Executed by link.</a>
-			</p>
-		</form>
-	</div> 
-	
+	<p class="actions"><input id="speech" lang="en-EN" type="text" x-webkit-speech speech></p>
+	<p id="circle"></p>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="http://download.chico-ui.com.ar/0.6.9/chico-min-0.6.9.js"></script>
 	<script> 		
-		// Modal
-		var ch_moda = $(".YOUR_SELECTOR_Modal").modal({
-		      onContentLoad: function(){ 
-		      	console.log("onContentLoad working fine") 
-              },
-		      onContentError: function(){ 
-		      	console.log("onContentError working fine") 
-		      }
-		});
-		
 		// Voive
 		$("#speech").bind("webkitspeechchange", function(){
-			ch_moda[0][this.value]();
+				if(this.value == "start") {
+					$("#circle").css('-webkit-transform', 'rotate(360deg)');
+					$("#circle").css('left', '500px');
+				};
 		});
 	</script>
 </body> 
