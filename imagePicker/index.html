@@ -1,0 +1,508 @@
+﻿<!doctype html> 
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<title>ChicoUI Image Picker Example</title>
+		<link href="http://www.chico-ui.com.ar/versions/0.7.4/chico-0.7.4.css" rel="stylesheet">
+		<style>
+			
+			.logoGoogle{
+				margin-right: 10px;
+				background: url("http://ssl.gstatic.com/docs/picker/images/picker_sprite-v17.png") no-repeat scroll -86px 0 transparent;
+				display:block;
+				height: 24px;
+				width: 61px;
+				overflow:hidden;
+				text-indent: 100px;
+			}
+			#searchResults {
+				overflow: hidden;
+				margin: 10px auto;
+				height:350px;
+				overflow:auto;
+			}
+			#searchResults li{
+				float:left;
+				margin: 2px;
+			}
+			#searchResults li img{
+				padding: 5px;
+				display:block;
+				cursor: pointer;
+			}
+			
+			#searchResults li img:hover{
+				padding: 4px;	
+				border: 1px solid #CCC;
+			}
+			
+			#searchResults li img:active{
+				padding: 0px;	
+				border: 5px solid #4787ED;
+			}
+
+		</style>
+	</head>
+	<body>
+		<input class="selectImage" type="text" name="image">
+		<!--div id="content-picker" class="ch-hide">
+			<h2>Busca una imagen</h2>
+			<form action="/" method="GET" id="searchImages">
+				<div class="field-box">
+					<label for="example_field">
+						<span class="logoGoogle">Google</span>
+						<input type="search" placeholder="Ingresa lo que deseas buscar" size="45" id="imageQuery">
+					</label>
+					<input type="submit" value="Buscar" class="btn secondary skin">
+				</div>
+			</form>
+			<form action="/" method="GET">
+				<ul id="searchResults">
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
+				</ul>
+				<p>
+					<input type="submit" value="Seleccionar" class="btn secondary" id="selec">
+				</p>
+			</form>
+
+		</div-->
+		
+		<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+		<script src="http://www.chico-ui.com.ar/versions/0.7.4/chico-min-0.7.4.js"></script>
+		<script>
+
+/**
+* Is a simple UI-Component for picking images from Google.
+* @name imagePicker
+* @class imagePicker
+* @augments ch.Controllers
+* @requires ch.Modal
+* @memberOf ch
+* @param {object} conf Object with configuration properties
+* @returns itself
+*/
+//TODO: Examples
+ch.imagePicker = function (conf) {
+	
+	/**
+	* Reference to a internal component instance, saves all the information and configuration properties.
+	* @private
+	* @name ch.imagePicker#that
+	* @type object
+	*/
+	var that = this;
+
+	conf = ch.clon(conf);
+	that.conf = conf;
+
+/**
+*	Inheritance
+*/
+
+	that = ch.controllers.call(that);
+	that.parent = ch.clon(that);
+
+/**
+*	Private Members
+*/
+
+	/**
+	* Src of selected image
+	* @private
+	* @name ch.imagePicker#selected
+	* @type date
+	*/
+	var selected;
+
+	/**
+	* HTML Template
+	* @private
+	* @name ch.imagePicker#template
+	* @type jQuery
+	*/
+	var $template = $("<div id=\"content-picker\"><h2>Busca una imagen</h2><form action=\"/\" method=\"GET\" id=\"searchImages\"><div class=\"field-box\"><label for=\"example_field\"><span class=\"logoGoogle\">Google</span><input type=\"search\" placeholder=\"Ingresa lo que deseas buscar\" size=\"45\" id=\"imageQuery\"></label> <input type=\"submit\" value=\"Buscar\" class=\"btn secondary skin\"></div></form><form action=\"/\" method=\"GET\" class=\"ch-hide\"><ul id=\"searchResults\"></ul><p><input type=\"submit\" value=\"Seleccionar\" class=\"btn secondary\" id=\"select\"></p></form></div>");
+
+
+	/**
+	* Binde a group of events to the container
+	* @private
+	* @function
+	* @name ch.imagePicker#eventsDelegation
+	*/
+	var eventsDelegation = function () {
+
+	};
+
+	/**
+	* Creates a complete list of results
+	* @private
+	* @function
+	* @name ch.imagePicker#createResults
+	* @return string
+	*/
+	var createResults = function (data) {
+
+	};
+
+	/**
+	* Creates an instance of Modal
+	* @private
+	* @function
+	* @name ch.imagePicker#createModal
+	*/
+	var createModal = function () {
+
+		that.children[0] = $("<a>").modal({
+			onShow: function () {
+				// onShow callback
+				// old callback system
+				that.callbacks.call(that, "onShow");
+				// new callback
+				that.trigger("show");
+			},
+			onHide: function () {
+				// onHide callback
+				// old callback system
+				that.callbacks.call(that, "onHide");
+				// new callback
+				that.trigger("hide");
+			},
+			onContentLoad: function () {
+				// onShow callback
+				// old callback system
+				that.callbacks.call(that, "onContentLoad");
+				// new callback
+				that.trigger("contentLoad");
+			},
+			content: $template,
+			width: 700
+		});
+	};
+
+	/**
+	* Create component's layout
+	* @private
+	* @function
+	* @name ch.imagePicker#createLayout
+	*/
+	var createLayout = function () {
+
+		that.$trigger =	$("<div class=\"secondary ch-calendar\">");
+
+		that.$container = $("<div class=\"ch-calendar-container ch-hide\">");
+
+		that.$content = $("<div class=\"ch-calendar-content\">");
+
+		that.$element.after(that.$trigger);
+
+		createModal();
+
+	};
+
+	/**
+	* Selects an specific date to show
+	* @private
+	* @function
+	* @name ch.imagePicker#select
+	* @return itself
+	*/
+	var select = function (date) {
+
+		selected = new Date(date);
+
+		that.currentDate = selected;
+		
+		that.$content.html(createMonth(selected));
+		
+		that.element.value = FORMAT_DATE[conf.format](selected);
+
+		/**
+		* Callback function
+		* @public
+		* @name ch.imagePicker#onSelect
+		* @event
+		*/
+		// old callback system
+		that.callbacks("onSelect");
+		// new callback
+		that.trigger("select");
+	};
+
+
+	/**
+	* Move to prev year of imagePicker
+	* @private
+	* @function
+	* @name ch.imagePicker#reset
+	* @return itself
+	*/
+	var reset = function () {
+		selected = "";
+
+		that.element.value = "";
+
+		that.$content.html(createTemplate());
+
+		// Callback
+		that.callbacks("onReset");
+		// new callback
+		that.trigger("onReset");
+		
+		return that;
+	};
+
+
+/**
+*  Protected Members
+*/
+
+
+/**
+*  Public Members
+*/
+
+	/**
+	* The 'uid' is the Chico's unique instance identifier. Every instance has a different 'uid' property. You can see its value by reading the 'uid' property on any public instance.
+	* @public
+	* @name ch.imagePicker#uid
+	* @type number
+	*/
+
+	/**
+	* Reference to a DOM Element. This binding between the component and the HTMLElement, defines context where the component will be executed. Also is usual that this element triggers the component default behavior.
+	* @public
+	* @name ch.imagePicker#element
+	* @type HTMLElement
+	*/
+
+	/**
+	* This public property defines the component type. All instances are saved into a 'map', grouped by its type. You can reach for any or all of the components from a specific type with 'ch.instances'.
+	* @public
+	* @name ch.imagePicker#type
+	* @type string
+	*/
+
+
+	/**
+	* Triggers the innerShow method and returns the public scope to keep method chaining.
+	* @public
+	* @function
+	* @name ch.imagePicker#show
+	* @returns itself
+	* @example
+	* // Following the first example, using 'me' as modal's instance controller:
+	* me.show();
+	*/
+	that["public"].show = function () {
+		that.children[0].show();
+		
+		return that["public"];
+	};
+
+	/**
+	* Triggers the innerHide method and returns the public scope to keep method chaining.
+	* @public
+	* @function
+	* @name ch.imagePicker#hide
+	* @returns itself
+	* @example
+	* // Following the first example, using 'me' as modal's instance controller:
+	* me.hide();
+	*/
+	that["public"].hide = function () {
+		that.children[0].hide();
+
+		return that["public"];
+	};
+
+	/**
+	* Triggers the height method and returns the public scope to keep method chaining.
+	* @public
+	* @function
+	* @name ch.imagePicker#height
+	* @returns itself
+	* @example
+	* // Following the first example, using 'me' as modal's instance controller:
+	* me.show();
+	*/
+	that["public"].height = function (size) {
+		that.children[0].height(size);
+		
+		return that["public"];
+	};
+
+	/**
+	* Triggers the width method and returns the public scope to keep method chaining.
+	* @public
+	* @function
+	* @name ch.imagePicker#width
+	* @returns itself
+	* @example
+	* // Following the first example, using 'me' as modal's instance controller:
+	* me.show();
+	*/
+	that["public"].width = function (size) {
+		that.children[0].width(size);
+		
+		return that["public"];
+	};
+	
+	/**
+	* Triggers the position method and returns the public scope to keep method chaining.
+	* @public
+	* @function
+	* @name ch.imagePicker#position
+	* @returns itself
+	* @example
+	* // Following the first example, using 'me' as modal's instance controller:
+	* me.show();
+	*/
+	that["public"].position = function (o) {
+		that.children[0].position(o);
+		
+		return that["public"];
+	};
+
+	/**
+	* Returns the selected date
+	* @public
+	* @function
+	* @name ch.imagePicker#getSelected
+	* @return itself
+	* @TODO: Unifiy with select() method.
+	*/
+	that["public"].getSelected = function () {
+		return selected;
+	};
+
+	/**
+	* Reset the imagePicker to date of today
+	* @public
+	* @function
+	* @name ch.imagePicker#reset
+	* @return itself
+	*/
+	that["public"].reset = function () {
+		reset();
+
+		return that["public"];
+	};
+
+/**
+*	Default event delegation
+*/
+
+	that.element.type = "hidden";
+
+	createLayout();
+	
+	eventsDelegation();
+
+	return that;
+};
+
+ch.factory("imagePicker");
+
+			var search = {
+				start: 0,
+				query: "",
+				init:function(query, start){
+					$.getJSON("https://www.google.com/uds/GimageSearch?hl=es&q=" + escape(query) + "&key=ABQIAAAAO1GCLF-nJ-PfRvafIROL2xR7UGEy22ZvqF4e2t8zu6vVqBEfgRQTRNWnZQ9jaYzmZUPKfIK25Vap0g&v=1.0&start=" + start + "&callback=?", search.parseResults);
+				},
+				parseResults:function(data){
+					console.log(data);
+					/*
+					var items = [];
+					$(data[2].results).each(function(i,e) {
+						
+						var title = "<header><a href=\"" + e.permalink + "\">" + e.title + "</a></header>";
+						
+						var thumb = "<figure><a href=\"" + e.permalink + "\"><img src=\"" + e.thumbnail + "\" width=\"90\" height=\"90\"></a></figure>";
+	
+						var price = "<p class=\"costs\"><span class=\"price\">" + ((e.currency_id == "USD") ? "U$S " : "$ ") + e.price + "</span></p>";
+											
+						var row = "<li><article>" + title + thumb + price + "</article></li>";
+						
+						items.push(row);
+					
+					});
+					
+					var html = items.join("");
+					$(".loading").remove();
+					$("#searchResults").append( html );
+					
+					if ($(".more").length != 0) {
+						$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
+						return;
+					};
+					
+					$("body").append("<p class=\"actions\"><input type=\"submit\" value=\"More\" class=\"btn secondary skin more\"><p>");
+					*/
+				}
+			};
+			
+			/*$("#searchImages").live("submit", function(event){
+				event.preventDefault();
+				event.stopPropagation();
+				$("#searchResults").html("<div class=\"loading\">");
+				$("#searchResults").bind("scroll", function(){
+					console.log("scroll");
+				});
+				search.query = $("#imageQuery").val();
+
+				search.init(search.query, search.start);
+				search.start += 1;
+			});
+			
+			var imagePicker = $("<a>").modal({
+				content: "#content-picker",
+				height: 500,
+				width: 700,
+			}).show();*/
+			
+			var imagePicker = $(".selectImage").imagePicker();
+
+		</script>
+	</body>
+</html>
+
+<!--DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Search API Sample</title>
+    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript">
+		$.getJSON("https://www.google.com/uds/GimageSearch?hl=es&q=Burger%20King&key=ABQIAAAAO1GCLF-nJ-PfRvafIROL2xR7UGEy22ZvqF4e2t8zu6vVqBEfgRQTRNWnZQ9jaYzmZUPKfIK25Vap0g&v=1.0&start=0&callback=?", function(data){
+			console.log(data.responseData.results);
+		});
+    </script>
+
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="branding"  style="float: left;"></div><br />
+    <div id="content">Loading...</div>
+  </body>
+</html-->
+
