@@ -8,107 +8,133 @@
 	<head>
 		<script></script>
 		<meta charset="utf-8">
-		<title>MeLi Search</title>
-		<link rel="stylesheet" type="text/css" href="src/css/chico.css">
-		<link rel="stylesheet" type="text/css" href="src/css/mesh.css">
+		<title>Chico UI Demo  - Meli Search</title>
+		<link rel="stylesheet" href="http://chico-ui.com.ar/versions/0.7.7/chico-min-0.7.7.css">
+		<link rel="stylesheet" href="http://chico-ui.com.ar/versions/0.7.7/chico-mesh.css">
+
+		<!--link rel="stylesheet" type="text/css" href="src/css/chico.css"-->
+		<!--link rel="stylesheet" type="text/css" href="src/css/mesh.css"-->
+
 		<link rel="stylesheet" href="src/css/mobile.css">
 	</head>
-<body>	
-
-	<header class="mainHeader">
-		<a href="/" class="menuProvi">MercadoLibre</a> 
-		<form id="formBusqueda" action="http://www.mercadolibre.co.cr/jm/search" method="get"> 
-			<input type="text" class="search" maxlength="60" name="as_word" tabindex="1" autocomplete="off"> 
-		 	<input type="submit" value="Buscar" class="btn secondary" accesskey="b" tabindex="2"> 
-		</form> 
-	</header>
+	<body>	
 	
-	<section>
-		<ol id="searchResults">
-			<!--li>
-				<article>
-					<header>
-						<a href="http://articulo.mercadolibre.co.cr/MCR-5325106-clon-8gb-ipod-nano-4ta-gen-mp3-mp4-videos-fm-radio-_JM">Clon 8gb <strong>Ipod</strong> Nano 4ta. Gen Mp3, Mp4 , Videos, Fm Radio</a>
-					</header>
-					<figure>
-						<a href="http://articulo.mercadolibre.co.cr/MCR-5325106-clon-8gb-ipod-nano-4ta-gen-mp3-mp4-videos-fm-radio-_JM">
-							<img alt="Clon 8gb Ipod Nano 4ta. Gen Mp3, Mp4 , Videos, Fm Radio" src="http://img1.mlstatic.com/s_MCR_v_S_f_4538163_8968.jpg">
-						</a>
-					</figure>
-					<p class="costs"><span class="price">$ 123 <sup>45</sup></p>
-				</article>
-			</li-->
+		<header class="mainHeader">
+			<a href="/" class="menuProvi">MercadoLibre</a> 
+			<form id="formBusqueda" action="http://www.mercadolibre.com.ar/jm/search" method="GET">
+				<input type="text" class="search" maxlength="60" tabindex="1" autocomplete="off"> 
+			 	<input type="submit" value="Buscar" class="btn secondary" tabindex="2"> 
+			</form> 
+		</header>
+
+
+		<section class="example">
+
+			<ul id="searchResults">
+				<!--li>
+					<article>
+						<header>
+							<a href="http://articulo.mercadolibre.co.cr/MCR-5325106-clon-8gb-ipod-nano-4ta-gen-mp3-mp4-videos-fm-radio-_JM">Clon 8gb <strong>Ipod</strong> Nano 4ta. Gen Mp3, Mp4 , Videos, Fm Radio</a>
+						</header>
+						<figure>
+							<a href="http://articulo.mercadolibre.co.cr/MCR-5325106-clon-8gb-ipod-nano-4ta-gen-mp3-mp4-videos-fm-radio-_JM">
+								<img alt="Clon 8gb Ipod Nano 4ta. Gen Mp3, Mp4 , Videos, Fm Radio" src="http://img1.mlstatic.com/s_MCR_v_S_f_4538163_8968.jpg">
+							</a>
+						</figure>
+						<p class="costs"><span class="price">$ 123 <sup>45</sup></p>
+					</article>
+				</li>
+				<li>
+					<article>
+						<header>
+							<a href="http://articulo.mercadolibre.co.cr/MCR-5325106-clon-8gb-ipod-nano-4ta-gen-mp3-mp4-videos-fm-radio-_JM">Clon 8gb <strong>Ipod</strong> Nano 4ta. Gen Mp3, Mp4 , Videos, Fm Radio</a>
+						</header>
+						<figure>
+							<a href="http://articulo.mercadolibre.co.cr/MCR-5325106-clon-8gb-ipod-nano-4ta-gen-mp3-mp4-videos-fm-radio-_JM">
+								<img alt="Clon 8gb Ipod Nano 4ta. Gen Mp3, Mp4 , Videos, Fm Radio" src="http://img1.mlstatic.com/s_MCR_v_S_f_4538163_8968.jpg">
+							</a>
+						</figure>
+						<p class="costs"><span class="price">$ 123 <sup>45</sup></p>
+					</article>
+				</li-->
+			</ul>
+		</section>
 	
-		</ol>
-	</section>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-	<script src="http://sdk.mercadolibre.com/js/mercadolibre-0.0.5.js" charset="utf-8"></script>
-	<script type="text/javascript">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+		<script src="http://chico.com:8080/versions/0.7.7/chico-min-0.7.7.js"></script>
+		<script src="http://sdk.mercadolibre.com/js/mercadolibre-0.0.6.js" charset="utf-8"></script>
+		<script type="text/javascript">
+		(function (window, undefined) {
 
-		var search = {
-			limit: 5,
-			offset: 0,
-			query: "",
-			init:function(query, offset){
-				MercadoLibre.get("/sites/MLA/search?offset="+ offset +"&limit=5&q="+escape(query), search.parseResults);
-			},
-	
-			parseResults:function(data){
-				var items = [];
-				$(data[2].results).each(function(i,e) {
-					
-					var title = "<header><a href=\"" + e.permalink + "\">" + e.title + "</a></header>";
-					
-					var thumb = "<figure><a href=\"" + e.permalink + "\"><img src=\"" + e.thumbnail + "\" width=\"90\" height=\"90\"></a></figure>";
+			var app = (function() {
 
-					var price = "<p class=\"costs\"><span class=\"price\">" + ((e.currency_id == "USD") ? "U$S " : "$ ") + e.price + "</span></p>";
-										
-					var row = "<li><article>" + title + thumb + price + "</article></li>";
-					
-					items.push(row);
-				
-				});
-				
-				var html = items.join("");
-				$(".loading").remove();
-				$("#searchResults").append( html );
-				
-				if ($(".more").length != 0) {
-					//$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
-					return;
-				};
-				
-				$("body").append("<p class=\"actions\"><input type=\"submit\" value=\"More\" class=\"btn secondary skin more\"><p>");
+				var limit = 15,
 
-			}
-		};
+					search = {
+						offset: 0,
+						looking: function (query, offset) {
+							var offset = (offset == 0) ? offset : (search.offset += limit);
+							MercadoLibre.get("/sites/MLA/search?offset=" + offset + "&limit=" + limit + "&q=" + escape(query), search.parseResults);
+						},
 
-		var query, offset = 0;
+						parseResults: function (data) {
+							var items = [];
+							$(data[2].results).each(function (i,e) {
 
-		$("#formBusqueda").bind("submit", function(event){
+								var title = "<header><a href=\"" + e.permalink + "\">" + e.title + "</a></header>";
+
+								var thumb = "<figure><a href=\"" + e.permalink + "\"><img src=\"" + e.thumbnail + "\" width=\"90\" height=\"90\"></a></figure>";
+
+								var price = "<p class=\"costs\"><span class=\"price\">" + ((e.currency_id == "USD") ? "U$S " : "$ ") + e.price + "</span></p>";
+
+								var row = "<li><article>" + title + thumb + price + "</article></li>";
+
+								items.push(row);
+
+							});
+
+							var html = items.join("");
+
+							$(".loading").remove();
+
+							$("#searchResults").append(html);
+
+							if ($(".more").length != 0) {
+								return;
+							};
+
+							$("body").append("<p class=\"actions\"><input type=\"submit\" value=\"More\" class=\"btn secondary skin more\"><p>");
+						}
+					};
+
+				return search;
+
+			})();
+
+			window.app = app;
+
+		}(window));
+
+
+		var query;
+		
+		var init = function (event, offset) {
 			event.preventDefault();
 			event.stopPropagation();
-			
-			$("#searchResults").html("<div class=\"loading\">");
-			
 			query = $(".search").val();
-			
-			search.init(query, offset);
-			
+			app.looking(query, offset);
+		};
+
+		$("#formBusqueda").bind("submit", function(event){
+			$("#searchResults").html("<div class=\"loading\">");
+			init(event, 0);
 		});
 
 		$(".more").live("click", function(event){
-			event.preventDefault();
-			event.stopPropagation();
-			
 			$("#searchResults").append("<div class=\"loading\">");
-			//$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
-			query = $(".search").val();
-			offset += 5;
-			search.init(query, offset);
-			
+			init(event);
 		});
 	
-	</script>
-</body>
+		</script>
+	</body>
 </html>

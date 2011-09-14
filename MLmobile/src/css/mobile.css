@@ -5,27 +5,18 @@ body {
 	padding:0 10px
 }
 
-/*@media only screen and (max-device-width: 1920px) {
-	body {
-		min-width:760px;
-		max-width:1200px;
-		margin:0 auto;
-		padding:0 10px; /* Impide que el layout se pegue con el borde del browser */
-	}
-}*/
-
-.ie6 body, .ie7 body {
-	width:expression( (document.documentElement.clientWidth >1202)? "1200px": (document.documentElement.clientWidth <742)? "740px": "auto" );
-}
-.btn.secondary.skin{
-	width: 100%
+.actions {
+	margin-bottom: 10px;
 }
 
 .mainHeader {
 	height:40px;
-	background-color: #ccc;
+	background-color: #FFE80B;
+	background-image: url("http://chico-ui.com.ar/versions/assets/base.png");
+    background-position: 0 -144px;
 	line-height:40px;
-	border-bottom:1px solid #AFAFAF;
+	border-top: 1px solid #FFE80B;
+	border-bottom:1px solid #CCC;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -41,7 +32,7 @@ body {
 	width:58px;
 	height:32px;
 	position:absolute;
-	top:5px;
+	top:4px;
 	left:8px;
 	background: url("../../assets/logo.png") 0 0 no-repeat;
 }
@@ -50,20 +41,28 @@ body {
 	padding:0 10px 0 75px;
 }
 
+#formBusqueda .btn{
+	position: relative;
+    top: 1px;
+}
+
 .search {
 	border:1px solid #ccc;
-	padding:3px;
-	width:150px;
+	padding:4px;
+	width:250px;
 	height: 15px;
 }
 
 .search:focus {
 	border:2px solid #666;
-	padding:2px;
+	padding:3px;
+}
+
+section.example {
+	margin-top:50px;
 }
 
 #searchResults {
-	margin-top:50px;
 	width:100%;
 }
 
@@ -101,6 +100,10 @@ article header{
 article .costs{
 	padding-left:90px;
 	padding-top:5px;
+}
+
+.btn.secondary.skin{
+	width: 100%
 }
 
 footer p {
