@@ -74,7 +74,7 @@
 				$("#searchResults").append( html );
 				
 				if ($(".more").length != 0) {
-					$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
+					//$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
 					return;
 				};
 				
@@ -102,7 +102,7 @@
 			event.stopPropagation();
 			
 			$("#searchResults").append("<div class=\"loading\">");
-			$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
+			//$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
 			query = $(".search").val();
 			offset += 5;
 			search.init(query, offset);
