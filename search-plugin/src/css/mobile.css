@@ -1,0 +1,109 @@
+body { 
+    min-width: 410px;
+    height: 480px;
+    overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+.actions {
+	margin-bottom: 10px;
+}
+
+.mainHeader {
+	height:40px;
+	background-color: #FFE80B;
+	background-image: url("http://chico-ui.com.ar/versions/assets/base.png");
+    background-position: 0 -144px;
+	line-height:40px;
+	border-top: 1px solid #FFE80B;
+	border-bottom:1px solid #CCC;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	-moz-box-shadow: 0 1px 5px #333;
+	-webkit-box-shadow: 0 1px 5px #333;
+	box-shadow: 0 1px 5px #333;
+}
+
+
+.menuProvi{
+	display:block;
+	text-indent:999px;
+	overflow:hidden;
+	width:58px;
+	height:32px;
+	position:absolute;
+	top:4px;
+	left:8px;
+	background: url("../../assets/logo.png") 0 0 no-repeat;
+}
+
+#formBusqueda {
+	padding:0 0 0 75px;
+}
+
+#formBusqueda .btn{
+	position: relative;
+    top: 1px;
+}
+
+.search {
+	border:1px solid #CCC;
+	padding:4px;
+	width:130px;
+	height: 15px;
+}
+
+.search:focus {
+	border:2px solid #666;
+	padding:3px;
+}
+
+section.example {
+	margin: 50px 0 0 -5px;
+}
+
+#searchResults {
+}
+
+article {
+	height:80px;
+	position:relative;
+	border-bottom:1px solid #ccc;
+}
+
+article header a{
+	font-size: 16px;
+	font-weight: normal;
+	display:block;
+    margin-top: 10px;
+}
+
+article figure a {
+	position:absolute;
+	top:5px;
+	left:5px;
+}
+
+article figure img{
+	width:70px;
+	height:70px;
+}
+
+article header{
+	padding-left:85px;
+	padding-right:10px;
+	overflow:hidden;
+	max-height:50px;
+}
+
+article .costs{
+	padding-left:85px;
+	padding-top:5px;
+}
+
+.btn.secondary.skin{
+}
