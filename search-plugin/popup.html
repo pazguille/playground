@@ -97,9 +97,8 @@
 
 		}(window));
 
-
 		var query, site;
-		
+
 		var init = function (event, offset) {
 			event.preventDefault();
 			event.stopPropagation();
@@ -119,6 +118,16 @@
 			init(event);
 		});
 
+		$("#searchResults").bind("click", function(event){
+			event = event || window.event;
+			var target = event.target || event.srcElement;
+			
+			if (target.tagName == "A") {
+				chrome.tabs.getSelected(null, function(tab) {
+					chrome.tabs.update(tab.id, {"url":target.href});
+				});
+			};
+		});
 		</script>
 	</body>
 </html>
