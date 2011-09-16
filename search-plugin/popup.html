@@ -15,7 +15,7 @@
 	<body>	
 	
 		<header class="mainHeader">
-			<a href="/" class="menuProvi">MercadoLibre</a> 
+			<h1 class="menuProvi">MercadoLibre</h1> 
 			<form id="formBusqueda" action="http://www.mercadolibre.com.ar/jm/search" method="GET">
 				<input type="text" class="search" maxlength="60" tabindex="1" autocomplete="off">
 			 	<input type="submit" value="Buscar" class="btn secondary" tabindex="2">
@@ -41,7 +41,7 @@
 		<section class="example">
 			<ul id="searchResults"></ul>
 		</section>
-	
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 		<script type="text/javascript">
 		(function (window, undefined) {
@@ -65,7 +65,7 @@
 
 								var title = "<header><a href=\"" + e.permalink + "\">" + e.title + "</a></header>";
 
-								var thumb = "<figure><a href=\"" + e.permalink + "\"><img src=\"" + e.thumbnail + "\" width=\"90\" height=\"90\"></a></figure>";
+								var thumb = "<figure><img src=\"" + e.thumbnail + "\" width=\"90\" height=\"90\"></figure>";
 
 								var price = "<p class=\"costs\"><span class=\"price\">" + ((e.currency_id == "USD") ? "U$S " : "$ ") + e.price + "</span></p>";
 
@@ -128,6 +128,12 @@
 				});
 			};
 		});
+		
+		/*navigator.geolocation.getCurrentPosition(function(position){
+			$.getJSON("http://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude +"&sensor=false&callback=?", function(data){
+				console.log(data);
+			});
+		});*/
 		</script>
 	</body>
 </html>

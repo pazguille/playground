@@ -38,6 +38,7 @@ body {
 	position:absolute;
 	top:4px;
 	left:8px;
+	margin:0;
 	background: url("../../assets/logo.png") 0 0 no-repeat;
 }
 
@@ -82,7 +83,7 @@ article header a{
     margin-top: 10px;
 }
 
-article figure a {
+article figure {
 	position:absolute;
 	top:5px;
 	left:5px;
