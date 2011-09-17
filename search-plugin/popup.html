@@ -9,7 +9,7 @@
 		<script></script>
 		<meta charset="utf-8">
 		<title>Meli Search</title>
-		<link rel="stylesheet" href="http://chico-ui.com.ar/versions/0.7.7/chico-min-0.7.7.css">
+		<link rel="stylesheet" href="src/css/chico.css">
 		<link rel="stylesheet" href="src/css/mobile.css">
 	</head>
 	<body>	
@@ -97,15 +97,11 @@
 
 		}(window));
 
-		var query, site;
-
 		var init = function (event, offset) {
 			event.preventDefault();
 			event.stopPropagation();
 			$(".actions").remove();
-			query = $(".search").val();
-			site = $("#site").val();
-			app.looking(query, offset, site);
+			app.looking($(".search").val(), offset,  $("#site").val());
 		};
 
 		$("#formBusqueda").bind("submit", function(event){
@@ -114,7 +110,7 @@
 		});
 
 		$(".more").live("click", function(event){
-			$("#searchResults").append("<div class=\"loading\">");
+			$("#searchResults").append("<div class=\"loading small\">");
 			init(event);
 		});
 
@@ -128,12 +124,7 @@
 				});
 			};
 		});
-		
-		/*navigator.geolocation.getCurrentPosition(function(position){
-			$.getJSON("http://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude +"&sensor=false&callback=?", function(data){
-				console.log(data);
-			});
-		});*/
+
 		</script>
 	</body>
 </html>
