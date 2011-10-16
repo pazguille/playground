@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="es" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="es" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="es" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="es" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
+	<head>
+		<script></script>
+		<meta charset="utf-8">
+		<title>Parrilla Panpadentro</title>
+		<!--link rel="stylesheet" href="src/css/chico.css"-->
+		<!--link rel="stylesheet" href="src/css/chico-mesh.css"-->
+		<!--link rel="stylesheet" href="src/css/demo.css"-->
+		<link rel="stylesheet" href="src/css/styles.css" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+	</head>
+	<body>
+		<header>
+			<h1>Parrilla Panpadentro</h1>
+		</header>
+
+		<section>
+			<form id="login" class="gradient">
+				<label for="name">¿Cuál es tu nombre?</label>
+				<input id="name" type="text" placeholder="Escribe tu nombre..." autofocus required />
+				<input id="send" type="submit" value="Pa' dentro!" />
+			</form>
+			<section>
+				<p id="status">Te voy a encontrar</p>
+				<div id="map_canvas"></div>
+			</section>
+			<!--section>
+				<video id="video" width="640" height="360" controls preload> <!-- autoplay preload preload="metadata" poster="lol.jpg">
+					<source src="src/video/big_buck_bunny.mp4" type='video/mp4; condecs="avc1,mp4a"'/>
+					<source src="src/video/big_buck_bunny.webm" type='video/webm; condecs="vp8,vorbis"'/>
+					<!-- FLASH PLAYER 
+				</video>
+			</section-->
+			<article id="history">
+				<p>José David Moreno Rubio, se siente orgulloso de su origen humilde y de haber logrado el éxito rotundo de su negocio. Un 13 de Junio de 1983 tomó la decisión de abrir un pequeño negocio, instalando una carreta de tacos en las calles Heriberto Valdez y Palma, era un negocio humilde, una taquería, pero David tenía en mente la visión de convertirse en el mejor taquero de Los Mochis.</p>
+
+				<p>Todo comenzó cuando tenía 7 años de edad y tuve que ir a ayudar a mis padres en el trabajo del campo. Comencé a trabajar desde muy joven para ayudarlos en la economía de mi casa. Tenía 14 años cuando tuve que abandonar la escuela y comenzar a trabajar por mi cuenta ya que mi padre estaba enfermo. Eramos gente muy pobre asi que no podíamos pagarle a un doctor. Fue entonces cuando comencé a pensar en hacer algo más útil que simplemente trabajar para alguien más y construir algo por mi cuenta. Mi manera de pensar de nunca rendirme y siempre pelear por algo mejor nunca cambió y trataré siempre de nunca cambiarla ya que eso es lo que me está ayudando en mi carrera que está construyendo esta Taqueria, como así también oportunidades y trabajos a todos los que esten interesados en esta área.</p>
+
+				<p>La historia de esta Taqueria comenzó en 1996, en McAllen, TC en Bicentennial Blvd. Esa fue la primera Taqueria que tuve y sigo teniendo hasta que construya varias en el Valle, las cuales son; una en Harlingen, dos en McAllen, una en San Juan, una en Edinbug y otra próximamente en Mission. Trabajé muy duro para tener todas estas Taquerias y seguimos trabajando duramente para tener la mejor comida Mejicana, que para nosotros son los "TACOS", y siempre estaremos tratando de hacer feliz a la gente con estos mismos, como asi también a todos los mejicanos que viven en U.S. para que recuerden siempre de donde vienen y que seguramente aman.</p>
+
+				<p>El pan en México forma parte de una gran cultura y tradición, por ello, es muy probable que sea el país con mayor variedad de panes, debido a que somos resultado de una fusión cultural indígena, (nahua, tolteca, zapoteca, mixteca, otomi, tzetzal, sotzil, mayos, mayas, tarahumaras, huicholes, etc.), y lo que las culturas europeas, principalmente española y francesa nos heredaron. Así, cada estado, municipio y población, cuenta con su propio pan, sin importar su lugar dentro de la geografía nacional. 
+				</p>
+			</article>
+
+			<section id="asador">
+
+				<section id="ingredientes">
+					<article id="bife">
+						<h2>Bife</h2>
+						<div>
+							<img src="src/assets/bife.png" />
+						</div>
+						<p>Delicioso bife auténtico</p>
+					</article>
+
+					<article id="cebolla">
+						<h2>Cebolla</h2>
+						<div>
+							<img src="src/assets/cebolla.png" />
+						</div>
+						<p>Delicioso cebolla auténtico</p>
+					</article>
+
+					<article id="chorizo">
+						<h2>Chorizo</h2>
+						<div>
+							<img src="src/assets/chorizo.png" />
+						</div>
+						<p>Delicioso chorizo auténtico</p>
+					</article>
+
+					<article id="morcilla">
+						<h2>Morcilla</h2>
+						<div>
+							<img src="src/assets/morcilla.png" />
+						</div>
+						<p>Delicioso morcilla auténtico</p>
+					</article>
+
+					<article id="papa">
+						<h2>Papa</h2>
+						<div>
+							<img src="src/assets/papa.png" />
+						</div>
+						<p>Deliciosa papa auténtico</p>
+					</article>
+					
+					<article id="tira">
+						<h2>Tira</h2>
+						<div>
+							<img src="src/assets/tira.png" />
+						</div>
+						<p>Deliciosa tira auténtico</p>
+					</article>
+				</section>
+
+				<section id="parrilla">
+					<article id="parrillabase">
+						<h2>Tu parrilla tiene: </h2>
+						<div id="canvas"></div>
+						<ul>
+						</ul>
+						<button id="comprar">Comprar</button>
+					</article>
+				</section>
+
+			</section>
+
+		</section>
+
+		<footer class="gradient">
+			<p>Disañado y engendrado por Guillote Paz - &copy; 2011</p>
+		</footer>
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<!--script src="http://192.168.41.51:6969/socket.io/socket.io.js"></script-->
+		<script src="src/js/socketio.js"></script>
+		<script src="src/js/raphael-min.js"></script>
+		<script src="src/js/jquery-min-1.6.4.js"></script>
+		<script src="src/js/scripts.js"></script>
+	</body>
+</html>

@@ -1,0 +1,115 @@
+body { 
+	background-color: #fff;
+	color: #333; 
+	font:13px/20px Arial, Helvetica, "Nimbus Sans L", sans-serif;
+	padding:0 10px
+    max-width: none;
+    min-width: auto;
+}
+
+
+
+/***
+.mainHeader {
+	height:40px;
+	background-color: #FFE80B;
+	background-image: url("../assets/base.png");
+    background-position: 0 -144px;
+	line-height:40px;
+	border-top: 1px solid #FFE80B;
+	border-bottom:1px solid #CCC;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	-moz-box-shadow: 0 0 5px;
+	-webkit-box-shadow: 0 0 5px;
+	box-shadow: 0 0 5px;
+}
+
+
+.menuProvi{
+	display:block;
+	text-indent:999px;
+	overflow:hidden;
+	width:58px;
+	height:32px;
+	position:absolute;
+	top:4px;
+	left:8px;
+	background: url("../assets/logo.png") 0 0 no-repeat;
+}
+
+#formBusqueda {
+	padding:0 10px 0 75px;
+}
+
+#formBusqueda .btn{
+	position: relative;
+    top: 1px;
+}
+
+.search {
+	border:1px solid #ccc;
+	padding:4px;
+	width:250px;
+	height: 15px;
+}
+
+.search:focus {
+	border:2px solid #666;
+	padding:3px;
+}
+/***/
+
+
+
+
+/***
+.ch-carousel {
+	top: 100px;
+}
+
+.ch-carousel article {
+	border-bottom:none;
+	height:auto;
+}
+
+.ch-carousel article header a { 
+	font-size: 13px;
+}
+
+#searchResults li {
+    float: left;
+    height: 165px;
+    width: 195px;
+}
+
+.ch-carousel article {
+	position:relative;
+}
+
+.ch-carousel article header a{
+	font-weight: normal;
+    margin-top: 10px;
+    height: 40px;
+    display:block;
+    overflow:hidden;
+}
+
+.ch-carousel article figure {
+	text-align:center;
+}
+
+.ch-carousel article figure a{
+	display:block;
+}
+
+.ch-carousel article header{
+}
+
+.ch-carousel article .costs{
+}
+
+***/

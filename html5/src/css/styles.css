@@ -1,0 +1,237 @@
+@font-face
+{
+	font-family: "Freddito";
+	src: url("../fonts/PermanentMarker-webfont.eot");
+	src: url("../fonts/PermanentMarker-webfont.eot?#cualquiercosa") format("embedded-opentype"),
+		url("../fonts/PermanentMarker-webfont.woff") format("woff"),
+		url("../fonts/PermanentMarker-webfont.ttf") format("truetype"),
+		url("../fonts/PermanentMarker-webfont.svg#PermanentMarkerRegular") format("svg");
+}
+
+body
+{
+	background: #880000 url("../assets/azulejo.png") repeat;
+	font-family: Arial;
+	font-size: 16px;
+	margin: 0;
+	text-align:center;
+}
+
+footer, header, section
+{
+	background: #FFF;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	border-radius: 0.5em;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 5px 5px;
+	box-shadow: rgba(0,0,0,0.3) 0px 5px 5px;
+	margin: 1em auto;
+	padding: 1em;
+	width: 90%;
+}
+
+header
+{
+	background: url("../assets/logo.png") no-repeat 30px center,
+				url("../assets/ladrillo.png") repeat;
+	color: #FFF;
+}
+
+header h1
+{
+	font-family: "Freddito";
+	font-size: 3em;
+	margin: 0;
+	padding: 0.5em;
+	-webkit-text-shadow: #EEE 2px 2px 5px;
+	-moz-text-shadow: #EEE 2px 2px 5px;
+	-o-text-shadow: #EEE 2px 2px 5px;
+	-ms-text-shadow: #EEE 2px 2px 5px;
+	text-shadow: #EEE 2px 2px 5px;
+	-webkit-transition: -webkit-transform 1s linear, text-shadow 1s linear;
+	transition: -webkit-transform 1s linear, text-shadow 1s linear;
+}
+
+header h1:hover
+{
+	-webkit-transform: rotate(7deg) rotateX(30deg) skewX(-5deg);
+	text-shadow: #999 0 4px 0px,
+				#999 2px 9px 1px,
+				#999 4px 12px 1px,
+				#AAA 5px 13px 10px;
+	-webkit-transition: -webkit-transform 1s linear, text-shadow 1s linear;
+	transition: -webkit-transform 1s linear, text-shadow 1s linear;
+}
+
+#asador
+{
+	background: #721b00;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	border-radius: 0.5em;
+	-webkit-box-shadow: rgba(0,0,0,0.5) 0px 5px 30px inset;
+	box-shadow: rgba(0,0,0,0.5) 0px 5px 30px inset;
+	display: none;
+	padding: 0.2em;
+}
+
+#asador section{
+	display: inline-block;
+	margin:1%;
+	vertical-align:top;
+}
+
+#asador #ingredientes
+{
+	background: #FAA;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	margin: 1%;
+	padding: 0;
+	width: 66%;
+}
+
+#asador #ingredientes article:hover, #asador #ingredientes article:active
+{
+	background: #000 !important;
+	-webkit-transform: scale(1.2) rotate(-5deg);
+	transform: scale(1.2) rotate(-5deg);
+
+	-webkit-transition: -webkit-transform 0.5s linear, background 0.5s linear;
+	transition: transform 0.5s linear, background 0.5s linear;
+}
+
+#asador #ingredientes article:nth-child(odd):hover, #asador #ingredientes article:nth-child(odd):active
+{
+	-webkit-transform: scale(1.2) rotate(5deg);
+	transform: scale(1.2) rotate(5deg);
+}
+
+#asador #ingredientes article:nth-child(odd)
+{
+	background: #Ac2800;
+}
+
+#asador #ingredientes article
+{
+	background: #D88B00;
+	border: 3px solid #FFF;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	border-radius: 0.5em;
+	color: #FFF;
+	cursor: pointer;
+	display: inline-block;
+	height: 350px;
+	margin: 1% 1% 1% 0;
+	padding: 1%;
+	vertical-align: top;
+	width: 29%;
+	
+	-webkit-transition: -webkit-transform 0.5s linear;
+	transition: transform 0.5s linear;
+}
+#asador #ingredientes article div
+{
+	height: 165px;
+	line-height: 165px;
+}
+
+#asador #ingredientes article div img {
+	vertical-align: middle;
+}
+
+#asador #parrilla #canvas
+{
+	height: 160px;
+	widht: 160px;
+}
+
+#asador #parrilla
+{
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	width: 25%;
+}
+
+#history
+{
+	background: #721b00;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;
+	border-radius: 0.5em;
+	-webkit-box-shadow: rgba(0,0,0,0.5) 0px 5px 30px inset;
+	box-shadow: rgba(0,0,0,0.5) 0px 5px 30px inset;
+	color: #FFF;
+	-webkit-column-count: 2;
+	column-count: 2;
+	-webkit-column-gap: 2em;
+	column-gap: 2em;
+	-webkit-column-rule: 1px dashed #DDD;
+	column-rule: 1px dashed #DDD;
+	padding: 2% 3%;
+	text-align: justify;
+}
+
+#login
+{
+	-webkit-border-radius: 0.3em;
+	border-radius: 0.3em;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 5px 5px 5px;
+	box-shadow: rgba(0,0,0,0.3) 5px 5px 5px;
+	color: white;
+	font-size: 2em;
+	font-style: italic;
+	margin: 0.5em auto;
+	padding: 0.5em;
+	width: 55%;
+}
+
+#login input
+{
+	display: block;
+	font-size: 18px;
+	margin: 0.5em auto;
+	padding: 0.4em;
+	width: 60%;
+}
+
+#login input[type="submit"]
+{
+	background: #721B00;
+	border: none;
+	-webkit-border-radius: 0.2em;
+	border-radius: 0.2em;
+	-webkit-box-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+	box-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+	color: white;
+	font-size: 24px;
+	font-style: italic;
+	font-weight: bold;
+	width: 63%;
+}
+
+.gradient
+{
+	background-image: linear-gradient(bottom, rgb(158,113,0) 0%, rgb(234,168,0) 67%);
+	background-image: -o-linear-gradient(bottom, rgb(158,113,0) 0%, rgb(234,168,0) 67%);
+	background-image: -moz-linear-gradient(bottom, rgb(158,113,0) 0%, rgb(234,168,0) 67%);
+	background-image: -webkit-linear-gradient(bottom, rgb(158,113,0) 0%, rgb(234,168,0) 67%);
+	background-image: -ms-linear-gradient(bottom, rgb(158,113,0) 0%, rgb(234,168,0) 67%);
+	
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0, rgb(158,113,0)),
+	    color-stop(0.67, rgb(234,168,0))
+	);
+}
