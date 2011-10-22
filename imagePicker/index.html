@@ -2,7 +2,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 		<title>ChicoUI Image Picker Example</title>
-		<link href="http://www.chico-ui.com.ar/versions/0.7.4/chico-0.7.4.css" rel="stylesheet">
+		<link href="http://www.chico-ui.com.ar/versions/0.8.0/chico-min-0.8.0.css" rel="stylesheet">
 		<style>
 			
 			.logoGoogle{
@@ -21,7 +21,7 @@
 				overflow:auto;
 			}
 			#searchResults li{
-				float:left;
+				display:inline-block;
 				margin: 2px;
 			}
 			#searchResults li img{
@@ -30,9 +30,14 @@
 				cursor: pointer;
 			}
 			
-			#searchResults li img:hover{
-				padding: 4px;	
-				border: 1px solid #CCC;
+			#searchResults li img:hover{			
+				-moz-transform: scale(1.2);
+				-webkit-transform: scale(1.2);
+				transform: scale(1.2);
+				
+				-moz-transition: -webkit-transform 0.3 linear;
+				-webkit-transition: -webkit-transform 0.3s linear;
+				transition: -webkit-transform 0.3s linear;
 			}
 			
 			#searchResults li img:active{
@@ -43,53 +48,9 @@
 		</style>
 	</head>
 	<body>
-		<input class="selectImage" type="text" name="image">
-		<!--div id="content-picker" class="ch-hide">
-			<h2>Busca una imagen</h2>
-			<form action="/" method="GET" id="searchImages">
-				<div class="field-box">
-					<label for="example_field">
-						<span class="logoGoogle">Google</span>
-						<input type="search" placeholder="Ingresa lo que deseas buscar" size="45" id="imageQuery">
-					</label>
-					<input type="submit" value="Buscar" class="btn secondary skin">
-				</div>
-			</form>
-			<form action="/" method="GET">
-				<ul id="searchResults">
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-					<li><img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTVXxZfZM78psId8ZgpiX-edZD0JIDTQOTPKq2h-p3u-aUgV4yDY6Jv353m" style="width: 120px; height: 80px;"></li>
-				</ul>
-				<p>
-					<input type="submit" value="Seleccionar" class="btn secondary" id="selec">
-				</p>
-			</form>
-
-		</div-->
-		
-		<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
-		<script src="http://www.chico-ui.com.ar/versions/0.7.4/chico-min-0.7.4.js"></script>
+		<input class="selectImage" type="text" name="image">	
+		<script src="http://code.jquery.com/jquery.min.js"></script>
+		<script src="http://www.chico-ui.com.ar/versions/0.8.0/chico-min-0.8.0.js"></script>
 		<script>
 
 /**
@@ -127,11 +88,45 @@ ch.imagePicker = function (conf) {
 *	Private Members
 */
 
+
+	var search = {
+		start: 0,
+		query: "",
+		loading: false,
+		init:function(query){
+			$("#searchResults").removeClass("ch-hide");
+			
+			if (!search.loading) {
+				$("#searchResults ul").after("<div class=\"loading small\">");	
+			}
+			
+			search.loading = true;
+			
+			that.children[0].position("refresh");
+			
+			$.getJSON("http://www.google.com/uds/GimageSearch?hl=es&q=" + escape(query) + "&key=ABQIAAAAO1GCLF-nJ-PfRvafIROL2xR7UGEy22ZvqF4e2t8zu6vVqBEfgRQTRNWnZQ9jaYzmZUPKfIK25Vap0g&v=1.0&start=" + search.start + "&callback=?", search.parseResults);
+
+			search.start += 4;
+		},
+		parseResults:function(data){
+			var items = [];
+			for(var i=0, j= data.responseData.results.length; i<j; i+=1){
+				var img = "<li><img src=\"" + data.responseData.results[i].url + "\" style=\"width: 120px; height: 80px;\"></li>";			
+				items.push(img);
+			};
+			$("#searchResults .loading").remove();
+			$("#searchResults ul").append(items.join(""));
+			$("#searchResults .actions").removeClass("ch-hide");
+			that.children[0].position("refresh");
+			search.loading = false;
+		}
+	};
+
 	/**
 	* Src of selected image
 	* @private
 	* @name ch.imagePicker#selected
-	* @type date
+	* @type String
 	*/
 	var selected;
 
@@ -141,7 +136,7 @@ ch.imagePicker = function (conf) {
 	* @name ch.imagePicker#template
 	* @type jQuery
 	*/
-	var $template = $("<div id=\"content-picker\"><h2>Busca una imagen</h2><form action=\"/\" method=\"GET\" id=\"searchImages\"><div class=\"field-box\"><label for=\"example_field\"><span class=\"logoGoogle\">Google</span><input type=\"search\" placeholder=\"Ingresa lo que deseas buscar\" size=\"45\" id=\"imageQuery\"></label> <input type=\"submit\" value=\"Buscar\" class=\"btn secondary skin\"></div></form><form action=\"/\" method=\"GET\" class=\"ch-hide\"><ul id=\"searchResults\"></ul><p><input type=\"submit\" value=\"Seleccionar\" class=\"btn secondary\" id=\"select\"></p></form></div>");
+	var template = "<div id=\"content-picker\"><h2>Busca una imagen</h2><form action=\"/\" method=\"GET\" id=\"searchImages\"><div class=\"field-box\"><label for=\"example_field\"><span class=\"logoGoogle\">Google</span><input type=\"search\" placeholder=\"Ingresa lo que deseas buscar\" size=\"45\" id=\"imageQuery\"></label><input id=\"search-btn\" type=\"submit\" value=\"Buscar\" class=\"btn secondary skin\"></div><div id=\"searchResults\" class=\"ch-hide\"><ul></ul><p class=\"actions ch-hide\"><input type=\"submit\" value=\"More\" class=\"btn secondary\" id=\"more-btn\" name=\"more\"><input type=\"submit\" value=\"Seleccionar\" class=\"btn secondary\" id=\"select\"></p></div></form></div>";
 
 
 	/**
@@ -152,6 +147,40 @@ ch.imagePicker = function (conf) {
 	*/
 	var eventsDelegation = function () {
 
+		$("#content-picker").bind("click", function (event) {
+			//IE doesn't pass in the event object
+		    event = event || window.event;
+		    //IE uses srcElement as the target
+			var target = event.target || event.srcElement;    
+		    
+		    switch(target.id){
+		        case "search-btn":
+		        case "more-btn":
+		            event.preventDefault();
+		            event.stopPropagation();
+		            if ($("#imageQuery").val() == "") return;
+		            search.init($("#imageQuery").val());
+		            break;
+
+		        case "select-btn":
+		            saveDocument();
+		            break;
+
+		        case "refresh-btn":
+		            undoChanges();
+		            break;
+		        //others?
+		    };
+		});
+		
+		$("#searchResults").bind("scroll", function () {
+			var elem = $("#searchResults");	
+			if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight()){
+				search.init($("#imageQuery").val(), search.start);
+			}
+			
+		});
+		
 	};
 
 	/**
@@ -173,7 +202,7 @@ ch.imagePicker = function (conf) {
 	*/
 	var createModal = function () {
 
-		that.children[0] = $("<a>").modal({
+		that.children[0] = that.$element.modal({
 			onShow: function () {
 				// onShow callback
 				// old callback system
@@ -189,15 +218,29 @@ ch.imagePicker = function (conf) {
 				that.trigger("hide");
 			},
 			onContentLoad: function () {
+				eventsDelegation();
 				// onShow callback
 				// old callback system
 				that.callbacks.call(that, "onContentLoad");
 				// new callback
 				that.trigger("contentLoad");
+
 			},
-			content: $template,
-			width: 700
+			content: template,
+			width: 565
 		});
+	};
+	
+	/**
+	* Create component's trigger
+	* @private
+	* @function
+	* @name ch.imagePicker#createTrigger
+	*/
+	var createTrigger = function () {
+		that.element.type = "button";
+		that.element.value = conf.msg || "Search an image";
+		that.element.className = "btn secondary skin";
 	};
 
 	/**
@@ -207,17 +250,8 @@ ch.imagePicker = function (conf) {
 	* @name ch.imagePicker#createLayout
 	*/
 	var createLayout = function () {
-
-		that.$trigger =	$("<div class=\"secondary ch-calendar\">");
-
-		that.$container = $("<div class=\"ch-calendar-container ch-hide\">");
-
-		that.$content = $("<div class=\"ch-calendar-content\">");
-
-		that.$element.after(that.$trigger);
-
+		createTrigger();
 		createModal();
-
 	};
 
 	/**
@@ -229,13 +263,6 @@ ch.imagePicker = function (conf) {
 	*/
 	var select = function (date) {
 
-		selected = new Date(date);
-
-		that.currentDate = selected;
-		
-		that.$content.html(createMonth(selected));
-		
-		that.element.value = FORMAT_DATE[conf.format](selected);
 
 		/**
 		* Callback function
@@ -259,10 +286,7 @@ ch.imagePicker = function (conf) {
 	*/
 	var reset = function () {
 		selected = "";
-
-		that.element.value = "";
-
-		that.$content.html(createTemplate());
+		that.children[0].content(template);
 
 		// Callback
 		that.callbacks("onReset");
@@ -388,11 +412,10 @@ ch.imagePicker = function (conf) {
 	* Returns the selected date
 	* @public
 	* @function
-	* @name ch.imagePicker#getSelected
+	* @name ch.imagePicker#select
 	* @return itself
-	* @TODO: Unifiy with select() method.
 	*/
-	that["public"].getSelected = function () {
+	that["public"].select = function () {
 		return selected;
 	};
 
@@ -412,97 +435,47 @@ ch.imagePicker = function (conf) {
 /**
 *	Default event delegation
 */
-
-	that.element.type = "hidden";
-
 	createLayout();
 	
-	eventsDelegation();
-
+	/**
+	* Triggers when the component is ready to use.
+	* @name ch.imagePicker#ready
+	* @event
+	* @public
+	* @example
+	* // Following the first example, using 'me' as imagePicker's instance controller:
+	* me.on("ready",function () {
+	*	this.show();
+	* });
+	*/
+	setTimeout(function(){ that.trigger("ready")}, 50);
+	
 	return that;
 };
 
 ch.factory("imagePicker");
 
-			var search = {
-				start: 0,
-				query: "",
-				init:function(query, start){
-					$.getJSON("https://www.google.com/uds/GimageSearch?hl=es&q=" + escape(query) + "&key=ABQIAAAAO1GCLF-nJ-PfRvafIROL2xR7UGEy22ZvqF4e2t8zu6vVqBEfgRQTRNWnZQ9jaYzmZUPKfIK25Vap0g&v=1.0&start=" + start + "&callback=?", search.parseResults);
-				},
-				parseResults:function(data){
-					console.log(data);
-					/*
-					var items = [];
-					$(data[2].results).each(function(i,e) {
-						
-						var title = "<header><a href=\"" + e.permalink + "\">" + e.title + "</a></header>";
-						
-						var thumb = "<figure><a href=\"" + e.permalink + "\"><img src=\"" + e.thumbnail + "\" width=\"90\" height=\"90\"></a></figure>";
-	
-						var price = "<p class=\"costs\"><span class=\"price\">" + ((e.currency_id == "USD") ? "U$S " : "$ ") + e.price + "</span></p>";
-											
-						var row = "<li><article>" + title + thumb + price + "</article></li>";
-						
-						items.push(row);
-					
-					});
-					
-					var html = items.join("");
-					$(".loading").remove();
-					$("#searchResults").append( html );
-					
-					if ($(".more").length != 0) {
-						$("html").animate({scrollTop:parseInt( $(document).height(), 10) }, "slow");
-						return;
-					};
-					
-					$("body").append("<p class=\"actions\"><input type=\"submit\" value=\"More\" class=\"btn secondary skin more\"><p>");
-					*/
-				}
-			};
-			
-			/*$("#searchImages").live("submit", function(event){
-				event.preventDefault();
-				event.stopPropagation();
-				$("#searchResults").html("<div class=\"loading\">");
-				$("#searchResults").bind("scroll", function(){
-					console.log("scroll");
-				});
-				search.query = $("#imageQuery").val();
+/*$("#searchImages").live("submit", function(event){
+	event.preventDefault();
+	event.stopPropagation();
+	$("#searchResults").html("<div class=\"loading\">");
+	$("#searchResults").bind("scroll", function(){
+		console.log("scroll");
+	});
+	search.query = $("#imageQuery").val();
 
-				search.init(search.query, search.start);
-				search.start += 1;
-			});
-			
-			var imagePicker = $("<a>").modal({
-				content: "#content-picker",
-				height: 500,
-				width: 700,
-			}).show();*/
-			
-			var imagePicker = $(".selectImage").imagePicker();
+	search.init(search.query, search.start);
+	search.start += 1;
+});
+
+var imagePicker = $("<a>").modal({
+	content: "#content-picker",
+	height: 500,
+	width: 700,
+}).show();*/
+
+var imagePicker = $(".selectImage").imagePicker();
 
 		</script>
 	</body>
 </html>
-
-<!--DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Google Search API Sample</title>
-    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
-    <script type="text/javascript">
-		$.getJSON("https://www.google.com/uds/GimageSearch?hl=es&q=Burger%20King&key=ABQIAAAAO1GCLF-nJ-PfRvafIROL2xR7UGEy22ZvqF4e2t8zu6vVqBEfgRQTRNWnZQ9jaYzmZUPKfIK25Vap0g&v=1.0&start=0&callback=?", function(data){
-			console.log(data.responseData.results);
-		});
-    </script>
-
-  </head>
-  <body style="font-family: Arial;border: 0 none;">
-    <div id="branding"  style="float: left;"></div><br />
-    <div id="content">Loading...</div>
-  </body>
-</html-->
-
