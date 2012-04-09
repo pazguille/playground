@@ -1,19 +1,19 @@
-function get(url) {
- 	//try {
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", url, true);
-		xhr.setRequestHeader("Content-Type", "application/json");
-		xhr.send();
-		return {
-			status: xhr.status,
-			readyState: xhr.readyState,
-			onreadystatechange: xhr.onreadystatechange,
-			responseText: xhr.responseText,
-			responseXML: xhr.responseXML
-		};
-	//} catch (e) {
-	//return ''; // turn all errors into empty results}
-};
+	function get(url) {
+	 	//try {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", url, true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.send();
+			return {
+				status: xhr.status,
+				readyState: xhr.readyState,
+				onreadystatechange: xhr.onreadystatechange,
+				responseText: xhr.responseText,
+				responseXML: xhr.responseXML
+			};
+		//} catch (e) {
+		//return ''; // turn all errors into empty results}
+	};
 
 var parseResults = function(data){
 
